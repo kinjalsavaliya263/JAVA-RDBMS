@@ -28,4 +28,33 @@ create table STUDENT(Rno int(2) primary key default 0 ,Sname varchar(14),City va
 
 -- EMP LOG tabale --
 
-create table EmpTabale(Emp_id int(5),Log_date date,New_salary int(10),Action varchar(20));  
+create table EmpTabale(Emp_id int(5),Log_date date,New_salary int(10),Action varchar(20)); 
+
+
+
+-- 2.List the details of the emps in asc order of the Dptnos and desc of Jobs? --
+
+	select * from EMP order by Deptno;
+	select * from EMP order by job;
+
+-- 3. Display all the unique job groups in the descending order?
+
+	select * from EMP order by job desc;
+
+-- 4. List the emps who joined before 1981.
+
+	select * from EMP where Hiredate<"1981-01-01";
+
+-- 5. List the Empno, Ename, Sal, Daily sal of all emps in the asc order of Annsal.
+
+	select Empno,Ename,Sal from EMP order by Sal  asc;
+
+-- 6. List the Empno, Ename, Sal, Exp of all emps working for Mgr 7839.
+
+	select * from EMP where Mgr=7839;
+
+-- 7. Display all the details of the emps who’s Comm. Is more than their Sal?
+
+	select * from EMP where Comm>0;
+
+
