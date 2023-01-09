@@ -91,41 +91,33 @@ select * from EMP where Sal in(
 select Sal from EMP where Ename='FORD' or Ename='SMITH') order by Sal desc;
 
 
-
--- 16. List the emps whose jobs same as SMITH or ALLEN.
-
-
-
--- 17. Any jobs of deptno 10 those that are not found in deptno 20.
+-- 16. Any jobs of deptno 10 those that are not found in deptno 20.
 
 select * from EMP where Deptno=10 and Job not in (select Job from emp where Deptno=20);
 
 
--- 18. Find the highest sal of EMP table.
+-- 17. Find the highest sal of EMP table.
 
 select max(sal) from EMP;
 
--- 19. Find details of highest paid employee.
+-- 18. Find details of highest paid employee.
 
 select max(sal) as Highest_Sal_employee from EMP ;
 
--- 20. Find the total sal given to the MGR.
+-- 19. Find the total sal given to the MGR.
 
 select a.Ename,sum(a.Sal) from EMP a join EMP b on a.Empno=b.Mgr group by a.Ename;
 
--- 21. List the emps whose names contains ‘A’.
+-- 20. List the emps whose names contains ‘A’.
 
 select * from Emp where Ename like '%A%';
 
--- 22. Find all the emps who earn the minimum Salary for each job wise in ascending order.
+-- 21. Find all the emps who earn the minimum Salary for each job wise in ascending order.
 
 select Job,Ename,Sal from EMP where Sal in(select min(Sal) from EMP group by Job);
 
--- 23. List the emps whose sal greater than Blake’s sal.
 
-
-
--- 24. Create view v1 to select ename, job, dname, loc whose deptno are same.
+-- 22. Create view v1 to select ename, job, dname, loc whose deptno are same.
 	select e.ename,e.job,d.dname,d.loc from emp e join dept d on e.deptno=d.deptno;
 -- view -- 
 /* 
@@ -143,10 +135,6 @@ VIEW `tsql`.`new_view` AS
         (`tsql`.`emp` `e`
         JOIN `tsql`.`dept` `d` ON (`e`.`Deptno` = `d`.`Deptno`)))
 */
--- 25. Create a procedure with dno as input parameter to fetch ename and dname.
--- 26. Add column Pin with bigint data type in table student.
--- 27. Modify the student table to change the sname length from 14 to 40.
--- 28.Create trigger to insert data in emp_log table whenever any update of sal in EMP table. You can set action as ‘New Salary’.
 
  
 
